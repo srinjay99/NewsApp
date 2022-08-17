@@ -11,43 +11,34 @@ const News = (props) => {
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
 
-  // document.title = `${capitilazeFirstLetter(props.category)} - NewsMonkey`;
 
   const capitilazeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
   const updateNews = async () => {
-    props.setTheProgress(10);
+    props.setProgress(10);
     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
     setLoading(true);
     let data = await fetch(url);
-    props.setTheProgress(30);
+    props.setProgress(30);
     let parsedData = await data.json();
-    props.setTheProgress(60);
+    props.setProgress(60);
     setArticles(parsedData.articles);
     setTotalResults(parsedData.totalResults);
     setLoading(false);
-    props.setTheProgress(100);
+    props.setProgress(100);
   }
 
   useEffect(() => {
+    document.title = `${capitilazeFirstLetter(props.category)} - NewsMonkey`;
     updateNews();
+    //esLint-disable-next-line
   }, [])
-  
-  const handlePreviousClick = async () => {
-    setPage(page-1);
-    updateNews();
-  }
-
-  const handleNextClick = async () => {
-    setPage(page+1);
-    updateNews();
-  }
 
   const fetchMoreData = async () => {
-    setPage(page+1);
-    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page + 1}&pageSize=${props.pageSize}`;
+    setPage(page + 1);
     setLoading(true);
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -60,7 +51,7 @@ const News = (props) => {
   // console.log("render");
   return (
     <>
-      <h2 className='text-center' style={{ margin: `40px 0px` }}>NewsMonkey - Top Headlines on {capitilazeFirstLetter(props.category)}</h2>
+      <h2 className='text-center' style={{ margin: `40px 0px`, marginTop: `90px` }}>NewsMonkey - Top Headlines on {capitilazeFirstLetter(props.category)}</h2>
       {loading && <Spinner />}
       <InfiniteScroll
         dataLength={articles.length}
