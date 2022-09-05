@@ -69,6 +69,7 @@ const App = () => {
             <Route exact path="/science" element={<News setProgress={setProgress} apiKey={apiKey} key="science" pageSize={pageSize} country="in" category="science" />} />
             <Route exact path="/sports" element={<News setProgress={setProgress} apiKey={apiKey} key="sports" pageSize={pageSize} country="in" category="sports" />} />
             <Route exact path="/technology" element={<News setProgress={setProgress} apiKey={apiKey} key="technology" pageSize={pageSize} country="in" category="technology" />} />
+            {/* <Route exact path="/au" element={<News country="au" />} /> */}
           </Routes>
         </BrowserRouter>
       </div>

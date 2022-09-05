@@ -31,7 +31,7 @@ const News = (props) => {
   }
 
   useEffect(() => {
-    document.title = `${capitilazeFirstLetter(props.category)} - NewsMonkey`;
+    document.title = `${capitilazeFirstLetter(props.category)} - The Daily Bugle 📯`;
     updateNews();
     //esLint-disable-next-line
   }, [])
@@ -51,7 +51,7 @@ const News = (props) => {
   // console.log("render");
   return (
     <>
-      <h2 className='text-center' style={{ margin: `40px 0px`, marginTop: `90px` }}>NewsMonkey - Top Headlines on {capitilazeFirstLetter(props.category)}</h2>
+      <h2 className='text-center' style={{ margin: `40px 0px`, marginTop: `90px` }}>Top Headlines on {capitilazeFirstLetter(props.category)}</h2>
       {loading && <Spinner />}
       <InfiniteScroll
         dataLength={articles.length}

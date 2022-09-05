@@ -6,7 +6,7 @@ const Navbar = () => {
         <div>
             <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">NewsMonkey</Link>
+                    <Link className="navbar-brand" to="/">The Daily Bugle 📯</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -15,9 +15,6 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>
-                            {/* <li className="nav-item">
-                                    <Link className="nav-link" to="/about">About</Link>
-                                </li> */}
                             <li className="nav-item dropdown">
                                 <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Categories
@@ -43,3 +40,18 @@ const Navbar = () => {
 
 
 export default Navbar
+
+{/* <li className="nav-item dropdown">
+<Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Region
+</Link>
+<ul className="dropdown-menu">
+    <li><Link className="dropdown-item" to="/au">Australia</Link></li>
+    <li><Link className="dropdown-item" to="/ca">Canada</Link></li>
+    {/* <li><hr className="dropdown-divider"/></li> */}
+//     <li><Link className="dropdown-item" to="/in">India</Link></li>
+//     <li><Link className="dropdown-item" to="/sg">Singapore</Link></li>
+//     <li><Link className="dropdown-item" to="/gb">United Kingdom</Link></li>
+//     <li><Link className="dropdown-item" to="/us">United States</Link></li>
+// </ul>
+// </li> */}
